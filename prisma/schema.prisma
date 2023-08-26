@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Affidavit {
+  id                String   @id @default(uuid())
+  left_profile_pic  String
+  right_profile_pic String
+  fullname          String
+  address           String
+  paragraphs        String[]
+  date              String
+  from_language     String
+  to_language       String
+  fee_paid          Int
+  signature         String
+}
