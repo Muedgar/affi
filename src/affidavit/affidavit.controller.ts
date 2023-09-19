@@ -22,6 +22,11 @@ export class AffidavitController {
     return this.affidavitService.findOne(id);
   }
 
+  @Get('/name/:name')
+  findName(@Param('name') name: string) {
+    return this.affidavitService.findByName(name);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateAffidavitDto: UpdateAffidavitDto) {
     return this.affidavitService.update(id, updateAffidavitDto);

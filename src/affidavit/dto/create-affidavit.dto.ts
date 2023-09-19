@@ -40,5 +40,17 @@ export class CreateAffidavitDto {
   
   @IsNotEmpty()
   @IsString()
-  signature  
+  signature 
+  
+  @IsNotEmpty()
+  @IsString()
+  affi_code 
+
+  @IsNotEmpty()
+  @IsString()
+  qr_code
+  
+  @IsNotEmpty()
+  @IsString()
+  before_me 
 }

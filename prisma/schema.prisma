@@ -22,4 +22,16 @@ model Affidavit {
   to_language       String
   fee_paid          Int
   signature         String
+  affi_code         String
+  qr_code           String
+  before_me         String
+}
+
+model User {
+  id         String @id @default(uuid())
+  email      String @unique
+  first_name String
+  last_name  String
+  password   String
+  role       String
 }

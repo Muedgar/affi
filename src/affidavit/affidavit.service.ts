@@ -27,6 +27,10 @@ export class AffidavitService {
     return await this.deleteAffidavit(id);
   }
 
+  async findByName(name: string) {
+    return await this.getAllAffidavitsByName(name)
+  }
+
   private async createAffidavit(createAffidavitDto: CreateAffidavitDto) {
     return await this.prismaService.affidavit.create({
       data: {
@@ -36,6 +40,30 @@ select: {
   id: true
 }
     })
+  }
+
+
+  private async getAllAffidavitsByName(name: string) {
+    return await this.prismaService.affidavit.findMany({
+      where: {
+        fullname: name
+      },
+      select: {
+        id: true,
+        right_profile_pic: true,
+        left_profile_pic: true,
+        fullname: true,
+        address: true,
+        paragraphs: true,
+        date: true,
+        from_language: true,
+        to_language: true,
+        fee_paid: true,
+        signature: true,
+        affi_code: true,
+        qr_code: true,
+        before_me: true
+    }})
   }
 
   private async getAllAffidavits() {
@@ -51,7 +79,10 @@ select: {
         from_language: true,
         to_language: true,
         fee_paid: true,
-        signature: true
+        signature: true,
+        affi_code: true,
+        qr_code: true,
+        before_me: true
     }})
   }
 
@@ -71,7 +102,10 @@ select: {
         from_language: true,
         to_language: true,
         fee_paid: true,
-        signature: true
+        signature: true,
+        affi_code: true,
+        qr_code: true,
+        before_me: true
     }})
   }
 
